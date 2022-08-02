@@ -13,6 +13,7 @@ var (
 	errorLogger = log.New(os.Stdout, fmt.Sprintf("%-8s", "ERROR:"), log.LstdFlags|log.Lshortfile)
 	debugLogger = log.New(os.Stdout, fmt.Sprintf("%-8s", "DEBUG:"), log.LstdFlags|log.Lshortfile)
 	fatalLogger = log.New(os.Stdout, fmt.Sprintf("%-8s", "FATAL:"), log.LstdFlags|log.Lshortfile)
+	Tracing     = false
 )
 
 func Info(v ...interface{}) {
@@ -44,10 +45,14 @@ func Fatalf(format string, v ...interface{}) {
 	fatalLogger.Fatalf(format, v...)
 }
 func Trace(v ...interface{}) {
-	traceLogger.Println(v...)
+	if Tracing {
+		traceLogger.Println(v...)
+	}
 }
 func Tracef(format string, v ...interface{}) {
-	traceLogger.Printf(format, v...)
+	if Tracing {
+		traceLogger.Printf(format, v...)
+	}
 }
 
 func Debug(v ...interface{}) {
