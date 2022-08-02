@@ -7,54 +7,54 @@ import (
 )
 
 var (
-	infoLogger  = log.New(os.Stdout, fmt.Sprintf("%-8s", "INFO:"), log.LstdFlags)
-	traceLogger = log.New(os.Stdout, fmt.Sprintf("%-8s", "TRACE:"), log.LstdFlags|log.LstdFlags)
-	warnLogger  = log.New(os.Stdout, fmt.Sprintf("%-8s", "WARN:"), log.LstdFlags|log.Lshortfile)
-	errorLogger = log.New(os.Stdout, fmt.Sprintf("%-8s", "ERROR:"), log.LstdFlags|log.Lshortfile)
-	debugLogger = log.New(os.Stdout, fmt.Sprintf("%-8s", "DEBUG:"), log.LstdFlags|log.Lshortfile)
-	fatalLogger = log.New(os.Stdout, fmt.Sprintf("%-8s", "FATAL:"), log.LstdFlags|log.Lshortfile)
+	InfoLogger  = log.New(os.Stdout, fmt.Sprintf("%-7s", "INFO:"), log.LstdFlags)
+	TraceLogger = log.New(os.Stdout, fmt.Sprintf("%-7s", "TRACE:"), log.LstdFlags|log.Llongfile)
+	WarnLogger  = log.New(os.Stdout, fmt.Sprintf("%-7s", "WARN:"), log.LstdFlags|log.Lshortfile)
+	ErrorLogger = log.New(os.Stdout, fmt.Sprintf("%-7s", "ERROR:"), log.LstdFlags|log.Lshortfile)
+	DebugLogger = log.New(os.Stdout, fmt.Sprintf("%-7s", "DEBUG:"), log.LstdFlags|log.Lshortfile)
+	FatalLogger = log.New(os.Stdout, fmt.Sprintf("%-7s", "FATAL:"), log.LstdFlags|log.Lshortfile)
 	Tracing     = false
 )
 
 func Info(v ...interface{}) {
-	infoLogger.Println(v...)
+	InfoLogger.Println(v...)
 }
 func Infof(format string, v ...interface{}) {
-	infoLogger.Printf(format, v...)
+	InfoLogger.Printf(format, v...)
 }
 
 func Warn(v ...interface{}) {
-	warnLogger.Println(v...)
+	WarnLogger.Println(v...)
 }
 func Warnf(format string, v ...interface{}) {
-	warnLogger.Printf(format, v...)
+	WarnLogger.Printf(format, v...)
 }
 
 func Error(v ...interface{}) {
-	errorLogger.Println(v...)
+	ErrorLogger.Println(v...)
 }
 func Errorf(format string, v ...interface{}) {
-	errorLogger.Printf(format, v...)
+	ErrorLogger.Printf(format, v...)
 }
 
 func Fatal(v ...interface{}) {
-	fatalLogger.Fatal(v...)
+	FatalLogger.Fatal(v...)
 }
 
 func Fatalf(format string, v ...interface{}) {
-	fatalLogger.Fatalf(format, v...)
+	FatalLogger.Fatalf(format, v...)
 }
 func Trace(v ...interface{}) {
 	if Tracing {
-		traceLogger.Println(v...)
+		TraceLogger.Println(v...)
 	}
 }
 func Tracef(format string, v ...interface{}) {
 	if Tracing {
-		traceLogger.Printf(format, v...)
+		TraceLogger.Printf(format, v...)
 	}
 }
 
 func Debug(v ...interface{}) {
-	debugLogger.Println(v...)
+	DebugLogger.Println(v...)
 }
