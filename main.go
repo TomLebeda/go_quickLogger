@@ -8,11 +8,11 @@ import (
 
 var (
 	InfoLogger  = log.New(os.Stdout, fmt.Sprintf("%-7s", "INFO:"), log.LstdFlags)
-	TraceLogger = log.New(os.Stdout, fmt.Sprintf("%-7s", "TRACE:"), log.LstdFlags|log.Llongfile)
-	WarnLogger  = log.New(os.Stdout, fmt.Sprintf("%-7s", "WARN:"), log.LstdFlags|log.Lshortfile)
-	ErrorLogger = log.New(os.Stdout, fmt.Sprintf("%-7s", "ERROR:"), log.LstdFlags|log.Lshortfile)
+	TraceLogger = log.New(os.Stdout, fmt.Sprintf("%-7s", "TRACE:"), log.LstdFlags)
+	WarnLogger  = log.New(os.Stdout, fmt.Sprintf("%-7s", "WARN:"), log.LstdFlags)
+	ErrorLogger = log.New(os.Stdout, fmt.Sprintf("%-7s", "ERROR:"), log.LstdFlags)
 	DebugLogger = log.New(os.Stdout, fmt.Sprintf("%-7s", "DEBUG:"), log.LstdFlags|log.Lshortfile)
-	FatalLogger = log.New(os.Stdout, fmt.Sprintf("%-7s", "FATAL:"), log.LstdFlags|log.Lshortfile)
+	FatalLogger = log.New(os.Stdout, fmt.Sprintf("%-7s", "FATAL:"), log.LstdFlags)
 	Tracing     = false
 )
 
