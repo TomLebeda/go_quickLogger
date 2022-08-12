@@ -18,12 +18,12 @@ type LoggersStruct struct {
 
 var (
 	Loggers = LoggersStruct{
-		InfoLogger:  log.New(os.Stdout, fmt.Sprintf("%s %-8s", time.Now().Format("2006-01-02 15:04:05.000"), "INFO:"), 0),
-		TraceLogger: log.New(os.Stdout, fmt.Sprintf("%s %-8s", time.Now().Format("2006-01-02 15:04:05.000"), "TRACE:"), 0),
-		WarnLogger:  log.New(os.Stdout, fmt.Sprintf("%s %-8s", time.Now().Format("2006-01-02 15:04:05.000"), "WARN:"), 0),
-		ErrorLogger: log.New(os.Stdout, fmt.Sprintf("%s %-8s", time.Now().Format("2006-01-02 15:04:05.000"), "ERROR:"), 0),
-		DebugLogger: log.New(os.Stdout, fmt.Sprintf("%s %-8s", time.Now().Format("2006-01-02 15:04:05.000"), "DEBUG:"), 0),
-		FatalLogger: log.New(os.Stdout, fmt.Sprintf("%s %-8s", time.Now().Format("2006-01-02 15:04:05.000"), "FATAL:"), 0),
+		InfoLogger:  log.New(os.Stdout, fmt.Sprintf("%-8s", "INFO:"), log.LstdFlags|log.Lmicroseconds|log.Lmsgprefix),
+		TraceLogger: log.New(os.Stdout, fmt.Sprintf("%-8s", "TRACE:"), log.LstdFlags|log.Lmicroseconds|log.Lmsgprefix),
+		WarnLogger:  log.New(os.Stdout, fmt.Sprintf("%-8s", "WARN:"), log.LstdFlags|log.Lmicroseconds|log.Lmsgprefix),
+		ErrorLogger: log.New(os.Stdout, fmt.Sprintf("%-8s", "ERROR:"), log.LstdFlags|log.Lmicroseconds|log.Lmsgprefix),
+		DebugLogger: log.New(os.Stdout, fmt.Sprintf("%-8s", "DEBUG:"), log.LstdFlags|log.Lmicroseconds|log.Lmsgprefix),
+		FatalLogger: log.New(os.Stdout, fmt.Sprintf("%-8s", "FATAL:"), log.LstdFlags|log.Lmicroseconds|log.Lmsgprefix),
 	}
 	Tracing   = false
 	LogToFile = false
